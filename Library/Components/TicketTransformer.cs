@@ -18,7 +18,7 @@ public class TicketTransformer
             _logger.TrackTrace("Transform Started");
             List<ZendeskTicketModel> tickets = extract.Tickets;
             Dictionary<ZendeskRecordType, IReadOnlyList<ZendeskCommonModel>> records = extract.Records;
-            List<SqlTicketModel> convertedTickets = new List<SqlTicketModel>();
+            List<SqlTicketModel> convertedTickets = new();
             for (int i = 0; i < tickets.Count; i++) convertedTickets.Add(ConvertTicket(tickets[i]));
 
             SqlTicketModel ConvertTicket(ZendeskTicketModel t)
@@ -58,9 +58,9 @@ public class TicketTransformer
 
             Dictionary<string, string> FieldsToDict(ZendeskTicketModel.Field[] fields)
             {
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-                Dictionary<string, string>? dict = new Dictionary<string, string>();
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+
+                Dictionary<string, string> dict = new();
+
                 for (int i = 0; i < fields.Length; i++) if (!TryConvertField(i)) continue;
                 return dict;
 

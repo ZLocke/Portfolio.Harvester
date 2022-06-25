@@ -48,9 +48,9 @@ internal class DataMapper<T>
 
         foreach (var column in columns)
         {
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-            PropertyInfo? columnProperty = output.Type.GetProperty(column.name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+
+            PropertyInfo columnProperty = output.Type.GetProperty(column.name, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+
             if (columnProperty == null) continue;
 
             ConstantExpression columnNameExpr = Expression.Constant(column.i);

@@ -13,25 +13,22 @@ public record ExportSearchResults
     ///  Tickets found
     /// </summary>
     [JsonPropertyName("results")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    public ZendeskTicketModel[]? Results;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+    public ZendeskTicketModel[] Results { get; set; }
+
 
     /// <summary>
     /// Url links to the previous and next page of results
     /// </summary>
     [JsonPropertyName("links")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    public CursorLinks? Links;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+    public CursorLinks Links { get; set; }
+
 
     /// <summary>
     ///  Meta information about the search.
     /// </summary>
     [JsonPropertyName("meta")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    public CursorMeta? Meta;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+    public CursorMeta Meta { get; set; }
+
 
     public class CursorLinks
     {
@@ -39,17 +36,15 @@ public record ExportSearchResults
         /// Last page, not in use
         /// </summary>
         [JsonPropertyName("prev")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-        public string? Prev;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        public string Prev { get; set; }
+
 
         /// <summary>
         ///  URL to the next page of Results
         /// </summary>
         [JsonPropertyName("next")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-        public string? Next;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        public string Next { get; set; }
+
     }
 
     public class CursorMeta
@@ -58,15 +53,14 @@ public record ExportSearchResults
         ///  Boolean indicating if there are more Results
         /// </summary>
         [JsonPropertyName("has_more")]
-        public bool HasMore;
+        public bool HasMore { get; set; }
 
         /// <summary>
         /// Cursor object returned from the Search Service
         /// </summary>
         [JsonPropertyName("after_cursor")]
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-        public string? AfterCursor;
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        public string AfterCursor { get; set; }
+
     }
 
 

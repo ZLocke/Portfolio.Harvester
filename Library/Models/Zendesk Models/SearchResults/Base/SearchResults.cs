@@ -9,13 +9,13 @@ namespace Portfolio.ETL;
 /// </summary>
 public abstract class SearchResults
 {
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    [JsonPropertyName("next_page")] public string? Next_Page { get; set; }
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    [JsonPropertyName("previous_page")] public string? Prev { get; set; }
-#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
-    [JsonPropertyName("count")] public int? Count { get; set; }
+
+    [JsonPropertyName("next_page")] public string Next_Page { get; set; }
+
+
+    [JsonPropertyName("previous_page")] public string Prev { get; set; }
+
+    [JsonPropertyName("count")] public int Count { get; set; }
 
     /// <summary>
     /// Gets the records for the child type.
